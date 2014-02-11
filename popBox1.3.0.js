@@ -1,4 +1,4 @@
-﻿/*
+/*
 * jQuery popBox
 * Copyright (c) 2011 Simon Hibbard
 * 
@@ -49,9 +49,9 @@
             var inputName = 'popBoxInput' + obj.attr("Id");
             var labelValue = $("label[for=" + obj.attr('id') + "]").text();
 
-            obj.after('<div class="popBox-holder"></div><div class="popBox-container"><label style="display: none;" for="' + inputName + '">' + labelValue + '</label> <textarea id="' + inputName + '" name="' + inputName + '" class="popBox-input" /><div class="done-button"><input type="button" value="Done" class="button blue small"/></div></div>');
+            obj.after('<div class="popBox-holder"></div><div class="popBox-container"><label style="display: none;" for="' + inputName + '">' + labelValue + '</label> <textarea id="' + inputName + '" name="' + inputName + '" class="popBox-input" /><div class="done-button"><input type="button" value="Enregistrer" class="button blue small"/></div></div>');
 
-            obj.focus(function () {
+            obj.click(function () {
                 $(this).next(".popBox-holder").show();
                 var popBoxContainer = $(this).next().next(".popBox-container");
                 var change = true;
@@ -90,8 +90,7 @@
 
                         $(this).parent().hide();
                         $(this).parent().prev().hide();
-                        $(this).parent().prev().prev().val($(this).val().replace(/\n/g, options.newlineString));
-
+                        $(this).parent().parent().find('input').val($(this).val().replace(/\n/g, options.newlineString));
                     }
                 });
 
